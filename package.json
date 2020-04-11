@@ -1,0 +1,20 @@
+{
+  "name": "tetrio-client-unofficial",
+  "productName": "TETR.IO Desktop Client [UNOFFICIAL]",
+  "author": "Zudo",
+  "description": "An unofficial desktop client for TETR.IO, adding Discord Rich Presence and various other useful features.",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "license": "MIT",
+  "appId": "group.shinomiya.tetrioclient",
+  "devDependencies": {
+    "electron": "^8.2.1"
+  },
+  "scripts": {
+    "start": "electron src/app.js"
+  },
+  "dependencies": {
+    "discord-rich-presence": "^0.0.8",
+    "electron-store": "^5.1.1"
+  }
+}
