@@ -24,16 +24,36 @@ global.XMLHttpRequest = new Proxy(oldxhr, {
                     case "/api/users/me":
                         const userData = JSON.parse(xhr.responseText);
                         if (userData.success) {
-                            const userID = userData.user._id;
-                            fetch("/api/users/" + userID, {
-                                headers: {
-                                    "Authorization": "Bearer " + localStorage.getItem("userToken")
-                                }
-                            }).then(res => res.json()).then(user => {
-                                if (user.success) {
-                                    ipcRenderer.send("user", user.user);
-                                }
-                            });
+                            if (userData.user.role === "anon") {
+                                ipcRenderer.send("user", {
+                                    username: userData.user.username + " (anon)",
+                                    records: {
+                                        "40l": {
+                                            record: null,
+                                            rank: null
+                                        },
+                                        blitz: {
+                                            record: null,
+                                            rank: null
+                                        }
+                                    },
+                                    league: {
+                                        rank: "z",
+                                        rating: 0
+                                    }
+                                });
+                            } else {
+                                const userID = userData.user._id;
+                                fetch("/api/users/" + userID, {
+                                    headers: {
+                                        "Authorization": "Bearer " + localStorage.getItem("userToken")
+                                    }
+                                }).then(res => res.json()).then(user => {
+                                    if (user.success) {
+                                        ipcRenderer.send("user", user.user);
+                                    }
+                                });
+                            }
                         }
                         break;
                 }

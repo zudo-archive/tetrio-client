@@ -8,10 +8,12 @@
   "license": "MIT",
   "appId": "group.shinomiya.tetrioclient",
   "devDependencies": {
-    "electron": "^8.2.1"
+    "electron": "^8.2.1",
+    "electron-packager": "^14.2.1"
   },
   "scripts": {
-    "start": "electron src/app.js"
+    "start": "electron src/app.js",
+    "build": "electron-packager . --out=dist --icon=src/tetrio.ico --overwrite"
   },
   "dependencies": {
     "discord-rich-presence": "^0.0.8",
