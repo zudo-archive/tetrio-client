@@ -123,15 +123,15 @@ window.addEventListener("load", () => {
 
     newblock.appendChild(blockhead);
     newblock.appendChild(createCheckbox(
-        "Enable VSync",
+        "enable vsync",
         "Sync game refresh rate to your monitor's refresh rate. May reduce tearing at the cost of performance.",
         "video.vsync"));
     newblock.appendChild(createCheckbox(
-        "Enable frame rate limit",
+        "enable frame rate limit",
         "Limits the game's maximum frame rate. Enable this if animations look off.",
         "video.frame_limit"));
     newblock.appendChild(createCheckbox(
-        "Enable Rich Presence",
+        "enable rich presence",
         "Display game information as your Discord status.",
         "discord.enabled"));
     newblock.appendChild(restartWarning);
