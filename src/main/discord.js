@@ -49,7 +49,7 @@ function updateRichPresence() {
     console.log(rpData)
     discord.updatePresence({
         state: rpData.matchmakingSince ? "Matchmaking in Tetra League" : (rpData.ingameSince ? getGameTypeString(rpData.currentMenu) : getMenuTypeString(rpData.currentMenu)),
-        details: "Logged in as " + rpData.username,
+        details: "Logged in as " + rpData.username.toUpperCase(),
         largeImageKey: "logo",
         smallImageKey: rpData.rank.replace("-", "_m").replace("+", "_p"),
         smallImageText: "Rank " + rpData.rank.toUpperCase() + " (" + rpData.rating + ")",
